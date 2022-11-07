@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="./fetch.html">Fetch Page</a>
+    <div class="container">
+        <form action="">
+            <label for="title">Book Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+            <label for="author">Author Name:</label><br>
+            <input type="text" id="author" name="author"><br>
+            <label for="genre">Genre:</label><br>
+            <select id="genre" name="genre">
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-fiction</option>
+                <option value="drama">Drama</option>
+                <option value="poetry">Poetry</option>
+                <option value="folktale">Folktale</option>
+            </select><br>
+            <label for="year">Year Published:</label><br>
+            <input type="number" id="year" name="year" min="1600" max="2022">
+            <input type="submit" value="Add Book">
+        </form>
+
+        <table class="table table-striped mt-5">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Year</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="book-list"></tbody>
+        </table>    
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
