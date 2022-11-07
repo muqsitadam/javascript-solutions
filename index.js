@@ -12,26 +12,26 @@ class Book{
 class DOM{
     static displayBooks(){
         const storedBooks = [
-            {
-                title: "Book A",
-                author: "John Doe",
-                genre: "Sci-fi",
-                year: 1985
-            },
-            {
-                title: "Book B",
-                author: "Jane Doe",
-                genre: "Horror",
-                year: 2000
-            },
-            {
-                title: "Book C",
-                author: "Jane John",
-                genre: "Adventure",
-                year: 2005
-            }
+            // {
+            //     title: "Book A",
+            //     author: "John Doe",
+            //     genre: "Sci-fi",
+            //     year: 1985
+            // },
+            // {
+            //     title: "Book B",
+            //     author: "Jane Doe",
+            //     genre: "Horror",
+            //     year: 2000
+            // },
+            // {
+            //     title: "Book C",
+            //     author: "Jane John",
+            //     genre: "Adventure",
+            //     year: 2005
+            // }
         ]
-        const books =  storedBooks
+        const books =storedBooks;
 
         books.forEach((book) => DOM.addBookToList(book))
     }
