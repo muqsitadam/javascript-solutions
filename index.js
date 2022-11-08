@@ -11,26 +11,7 @@ class Book{
 //DOM class
 class DOM{
     static displayBooks(){
-        const storedBooks = [
-            // {
-            //     title: "Book A",
-            //     author: "John Doe",
-            //     genre: "Sci-fi",
-            //     year: 1985
-            // },
-            // {
-            //     title: "Book B",
-            //     author: "Jane Doe",
-            //     genre: "Horror",
-            //     year: 2000
-            // },
-            // {
-            //     title: "Book C",
-            //     author: "Jane John",
-            //     genre: "Adventure",
-            //     year: 2005
-            // }
-        ]
+        const storedBooks = []
         const books =storedBooks;
 
         books.forEach((book) => DOM.addBookToList(book))
@@ -40,11 +21,12 @@ class DOM{
 
         let row = document.createElement("tr")
         row.innerHTML = `
-        <td>${book.title}</td>
-        <td>${book.author}</td>
-        <td>${book.genre}</td>
-        <td>${book.year}</td>
+        <td class='table-title'>${book.title}</td>
+        <td class='table-author'>${book.author}</td>
+        <td class='table-genre'>${book.genre}</td>
+        <td class='table-year'>${book.year}</td>
         <td><a href="#" class="delete">X</a></td>
+        <td><a href="#" class="edit">Edit</a></td>
         `
         list.appendChild(row)
     }
@@ -60,6 +42,22 @@ class DOM{
         document.querySelector("#author").value = ''
         document.querySelector("#genre").value  = ''       
         document.querySelector("#year").value  = ''
+    }
+
+    static editBook(el){
+        //Getting innerHTML of table
+        let tableTitle = document.querySelector(".table-title").innerHTML
+        let tableAuthor = document.querySelector(".table-author").innerHTML
+        let tableGenre = document.querySelector(".table-genre").innerHTML
+        let tableYear = document.querySelector(".table-year").innerHTML
+
+        if (el.classList.contains('edit')) {
+            document.querySelector("#title").value = tableTitle;
+            document.querySelector("#author").value = tableAuthor;
+            document.querySelector("#genre").value = tableGenre;
+            document.querySelector("#year").value = tableYear;
+        }
+        el.parentElement.parentElement.remove()
     }
 }
 
@@ -95,4 +93,9 @@ document.querySelector("form").addEventListener('submit', (submit => {
 //Delete A book
 document.querySelector("#book-list").addEventListener("click", clicked => {
     DOM.deleteBook(clicked.target)
+})
+
+//Editing a book
+document.querySelector("#book-list").addEventListener("click", clicked => {
+    DOM.editBook(clicked.target)
 })

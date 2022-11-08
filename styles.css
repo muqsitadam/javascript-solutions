@@ -1,11 +1,12 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
-    
+    background-color: #afc3d4;
 }
 
 h1{
     font-size: 36px;
+    font-weight: 600;
     margin: 1em 0;
     text-align: center;
 }
@@ -16,6 +17,7 @@ form{
     padding: 2em ;
     border: 1px solid rgb(168, 155, 155);
     border-radius: 10px;
+    background-color: aliceblue;
 }
 
 label{
@@ -26,6 +28,8 @@ label{
 input, select{
     height: 3rem;
     width: 97%;
+    border: 1px solid aliceblue;
+    background-color: rgb(223, 229, 231);
     border-radius: 5px;
     font-size: 18px;
     padding: 0 1em;
@@ -35,4 +39,14 @@ input, select{
 
 select, .submit{
     width: 97%;
+}
+
+@media screen and (max-width: 450px) {
+    form{
+        width: 100%;
+    }
+
+    .table{
+        width: 100%;
+    }
 }
