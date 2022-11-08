@@ -7,14 +7,14 @@
     <title>Fetch API</title>
     <link rel="stylesheet" href="fetch.css">
 </head>
-<body>
-    <a href="./index.html">Classes Page</a>
-    <h1>Company Employees Details</h1>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for employees..">
-    <div class="container">
-
+<body onload="loadFunction()" >
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv" class="animate-bottom">
+        <a href="./index.html">Classes Page</a>
+        <h1>Company Employees Details</h1>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for employees..">
+        <div class="container"></div>
     </div>
-
     <script src="fetch.js"></script>
 </body>
 </html>

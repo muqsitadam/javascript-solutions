@@ -8,13 +8,13 @@ class Book{
     }
 }
 
-//DOM class
-class DOM{
+//Library class
+class Library{
     static displayBooks(){
         const storedBooks = []
         const books =storedBooks;
 
-        books.forEach((book) => DOM.addBookToList(book))
+        books.forEach((book) => Library.addBookToList(book))
     }
     static addBookToList(book){
         let list = document.querySelector("#book-list")
@@ -32,9 +32,16 @@ class DOM{
     }
 
     static deleteBook(el){
-        if (el.classList.contains('delete')) {
-            el.parentElement.parentElement.remove()
-        }
+        console.log(el)
+        let elementToBeDeleted = [...el]
+        elementToBeDeleted.filter(item => {
+            if(item.classList.contains("delete")){
+                el.parentElement.parentElement.remove()
+            }
+        })
+        // if (el.classList.contains('delete')) {
+        //     
+        // }
     }
 
     static clearField(){
@@ -62,7 +69,7 @@ class DOM{
 }
 
 // Event listeners
-document.addEventListener("DOMContentLoaded", DOM.displayBooks())
+document.addEventListener("LibraryContentLoaded", Library.displayBooks())
 
 //Add a book
 document.querySelector("form").addEventListener('submit', (submit => {
@@ -83,19 +90,19 @@ document.querySelector("form").addEventListener('submit', (submit => {
         const book = new Book(title,author,genre,year)
 
         //Add book to list
-        DOM.addBookToList(book)
+        Library.addBookToList(book)
 
         //Clear form
-        DOM.clearField()
+        Library.clearField()
     }
 }))
 
 //Delete A book
 document.querySelector("#book-list").addEventListener("click", clicked => {
-    DOM.deleteBook(clicked.target)
+    Library.deleteBook(clicked.target)
 })
 
 //Editing a book
 document.querySelector("#book-list").addEventListener("click", clicked => {
-    DOM.editBook(clicked.target)
+    Library.editBook(clicked.target)
 })
