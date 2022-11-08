@@ -31,18 +31,18 @@ class Library{
         list.appendChild(row)
     }
 
-    static deleteBook(el){
-        console.log(el)
-        let elementToBeDeleted = [...el]
-        elementToBeDeleted.filter(item => {
-            if(item.classList.contains("delete")){
-                el.parentElement.parentElement.remove()
-            }
-        })
-        // if (el.classList.contains('delete')) {
-        //     
-        // }
-    }
+    // static deleteBook(el){
+    //     console.log(el)
+    //     let elementToBeDeleted = [...el]
+    //     elementToBeDeleted.filter(item => {
+    //         if(item.classList.contains("delete")){
+    //             el.parentElement.parentElement.remove()
+    //         }
+    //     })
+    //     // if (el.classList.contains('delete')) {
+    //     //     
+    //     // }
+    // }
 
     static clearField(){
         document.querySelector("#title").value  = ''
@@ -98,8 +98,18 @@ document.querySelector("form").addEventListener('submit', (submit => {
 }))
 
 //Delete A book
-document.querySelector("#book-list").addEventListener("click", clicked => {
-    Library.deleteBook(clicked.target)
+// document.querySelector("#book-list").addEventListener("click", clicked => {
+//     Library.deleteBook(clicked.target)
+// })
+let allbooks = document.querySelectorAll(".delete")
+let newbooks = [...allbooks]
+newbooks.forEach(item => {
+    item.addEventListener('click', (item,i) => {
+        let itemIndex = newbooks.indexOf(item)
+        if (itemIndex !== -1) {
+            newbooks.splice(itemIndex, 1);
+        }
+    })
 })
 
 //Editing a book
