@@ -103,7 +103,7 @@ document.querySelector("form").addEventListener('submit', (submit => {
 // })
 let allbooks = document.querySelectorAll(".delete")
 let newbooks = [...allbooks]
-newbooks.forEach(item => {
+newbooks.filter(item => {
     item.addEventListener('click', (item,i) => {
         let itemIndex = newbooks.indexOf(item)
         if (itemIndex !== -1) {
